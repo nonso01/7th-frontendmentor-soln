@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: var(--bd);
+}
+
+:root {
+  --ts: transparent;
+  --wt: #fff;
+  --p-bl: hsla(243,100%,93%,1);
+  --gy-bl: hsla(229,7%,55%,1);
+  --dk-bl: hsla(228,56%,26%,1);
+  --v-d-b: hsla(229,57%,11%,1);
+  --mx-w: 1440px;
+  --mx-h: 100vmax;
+  --st-w: 100%;
+  --rad: .7143rem;
+  --fts: 14px;
+  --cn: center;
+  --bd: 1px solid currentColor;
+}
+
+html {
+  font-size: var(--fts);
+  width: var(--mx-w);
+  min-height: 100vmax;
+}
+html body {
+  min-height: inherit;
+}
+
+/*# sourceMappingURL=fun.css.map */
