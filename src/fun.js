@@ -23,3 +23,20 @@ function event(e,t,f){
 function rmEvent(e,t,f){
  const remove= e.removeEventListener(t,f)
 }
+
+const element= {
+ 
+}
+
+function Card(){
+ this.a
+ this.b
+}
+
+Card.prototype={
+ constructor: Card,
+ mode: function(){
+  
+ },
+ 
+}

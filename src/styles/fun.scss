@@ -1,5 +1,6 @@
 @use "sass:math";
 
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
 
 *{
  margin: 0;
@@ -7,7 +8,8 @@
  box-sizing: border-box;
  
  outline: none;
- border: var(--bd);
+ font-family:  "Raleway",monospace;
+// border: var(--bd);
 }
 
 :root{
@@ -31,8 +33,76 @@
 html{
  font-size: var(--fts);
  width: var(--mx-w);
- min-height: 100vmax;
+ min-height: var(--mx-h);
+ 
+ 
+ background: var(--v-d-b) url("/images/bg-desktop.png") no-repeat border-box 0% 100%/100% 50%;
  body{
   min-height: inherit;
  }
+}
+
+//utility classes
+
+$space-type: ("evenly":"space-evenly","around":"space-around","between":"space-between");
+$fx-dir: row, column;
+$im: !important;
+
+@each $type, $name in $space-type{
+ .fx-#{$type}{
+  display: flex;
+  align-content: var(--cn);
+  justify-content: #{$name};
+ }
+}
+
+@each $dir in $fx-dir{
+ .fx-#{$dir}{
+  flex-flow: $dir;
+ }
+}
+
+.hide{
+ display: none;
+}
+
+img{
+ width: auto;
+ height: auto;
+}
+
+//card object and components
+.card{
+ width: 80%;
+ height: 15.714rem;
+ align-self: var(--cn);
+ &__intro{
+  width: 33%;
+  padding-left: 5%;
+  border-top-right-radius: calc(var(--st-w)/3) $im;
+  border-radius: var(--rad);
+  background-color: var(--dk-bl);
+  div{
+   width: 60%;
+  }
+ }
+ &__info{
+  width: 57%;
+  height: 75%;
+    border-radius: var(--rad);
+   align-self: flex-end;
+   background-color: var(--dk-bl);
+
+ }
+ &__icon{
+  span{
+   display: inline-block;
+   width: 50px;
+   height: 50px;
+   border-radius: var(--rad);
+   background-color: var(--v-d-b);
+   img{ }
+  }
+ }
+ color: #30B979;
 }
