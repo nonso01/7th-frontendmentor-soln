@@ -50,7 +50,7 @@ Card.prototype={
  },
  nomalize: function(){
   this.icons.forEach(e=>e.className="fx-column fx-evenly")
-  
+ 
  }
  
 }
