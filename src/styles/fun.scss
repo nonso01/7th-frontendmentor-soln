@@ -66,10 +66,7 @@ $im: !important;
  display: none;
 }
 
-img{
- width: auto;
- height: auto;
-}
+
 
 //card object and components
 .card{
@@ -96,12 +93,13 @@ img{
  }
  &__icon{
   span{
-   display: inline-block;
    width: 50px;
    height: 50px;
    border-radius: var(--rad);
    background-color: var(--v-d-b);
-   img{ }
+  img{
+   align-self: var(--cn);
+  }
   }
  }
  color: #30B979;

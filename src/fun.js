@@ -24,19 +24,35 @@ function rmEvent(e,t,f){
  const remove= e.removeEventListener(t,f)
 }
 
-const element= {
- 
-}
+
 
 function Card(){
- this.a
- this.b
+ this.logo= dq(".card__logo img")
+ this.icons= dqA(".card__icon span")
+ this.number
 }
+
+Card.SPEED= 0.04
+Card.MB= 600
+Card.TB= 1000
+
 
 Card.prototype={
  constructor: Card,
  mode: function(){
   
  },
+ animate:function(){
+  
+ },
+ resize:function(){
+  
+ },
+ nomalize: function(){
+  this.icons.forEach(e=>e.className="fx-column fx-evenly")
+  
+ }
  
 }
+let a = new Card()
+a.nomalize()
