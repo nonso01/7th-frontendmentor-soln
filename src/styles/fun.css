@@ -34,7 +34,8 @@ html body {
   min-height: inherit;
 }
 
-.fx-evenly {
+/* ----- utility classes ----- */
+.fx-evenly, #tb .card, #mb .card {
   display: flex;
   align-content: var(--cn);
   justify-content: space-evenly;
@@ -56,7 +57,7 @@ html body {
   flex-flow: row;
 }
 
-.fx-column {
+.fx-column, #tb .card, #mb .card {
   flex-flow: column;
 }
 
@@ -67,7 +68,7 @@ html body {
 .gray {
   color: var(--gy-bl);
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.1rem !important;
 }
 
 .pale {
@@ -109,7 +110,7 @@ html body {
   color: var(--v-d-b);
   width: 16.43rem;
   height: 8.75rem;
-  padding: 2%;
+  padding: 3% 4%;
   border-radius: var(--rad);
 }
 .card__icon span {
@@ -125,9 +126,59 @@ html body {
   display: inline-block;
   width: 100%;
   height: 20px;
-  margin: var(--rad);
+  margin: calc(var(--rad) / 2);
   border-radius: calc(var(--rad) * 3);
   background: hsla(229deg, 57%, 11%, 0.1);
+}
+
+#tb, #mb {
+  width: var(--st-w);
+  background: var(--v-d-b) url("/images/bg-mobile.png") no-repeat border-box 0% 0%/100% 100%;
+}
+/* ---- js media ----- */
+#tb .card {
+  width: 70%;
+  height: 450px;
+}
+#tb .card__intro {
+  height: 48%;
+  width: 60%;
+  align-self: var(--cn);
+}
+#tb .card__info {
+  height: 40%;
+  width: 60%;
+  align-self: var(--cn);
+}
+#tb .card__info h1 {
+  clip-path: none;
+  top: 90%;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  height: 6.728rem;
+  width: 12.637rem;
+}
+
+#mb .card {
+  height: 400px;
+  width: 90%;
+}
+#mb .card__intro {
+  height: 47%;
+  width: 100%;
+}
+#mb .card__info {
+  width: 100%;
+  height: 40%;
+}
+#mb .card__info h1 {
+  clip-path: none;
+  top: 90%;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  height: 5.393rem;
+  width: 10.214rem;
+  padding: 1%;
 }
 
 /*# sourceMappingURL=fun.css.map */
