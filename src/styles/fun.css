@@ -22,11 +22,17 @@
   --fts: 14px;
   --cn: center;
   --bd: 1px solid currentColor;
+  --b: ease-in-out;
+  --trans-a: 3.5s var(--b) 1 -.5s;
+  --right: goRight var(--trans-a);
+  --left: goLeft var(--trans-a);
+  --up: goUp var(--trans-a);
+  --down: goDown var(--trans-a);
 }
 
 html {
   font-size: var(--fts);
-  width: var(--st-w);
+  width: var(--mx-w);
   min-height: var(--mx-h);
   background: var(--v-d-b) url("/images/bg-desktop.png") no-repeat border-box 0% 100%/100% 50%;
 }
@@ -68,7 +74,7 @@ html body {
 .gray {
   color: var(--gy-bl);
   font-weight: 500;
-  font-size: 1.1rem !important;
+  font-size: 1.15rem !important;
 }
 
 .pale {
@@ -88,6 +94,7 @@ html body {
   border-top-right-radius: calc(var(--st-w) / 3) !important;
   border-radius: var(--rad);
   background-color: var(--dk-bl);
+  animation: var(--left);
 }
 .card__intro div {
   width: 60%;
@@ -100,6 +107,7 @@ html body {
   align-self: flex-end;
   background-color: var(--dk-bl);
   position: relative;
+  animation: var(--right);
 }
 .card__info h1 {
   position: absolute;
@@ -108,10 +116,14 @@ html body {
   clip-path: polygon(0 0, 0 75%, 87% 75%, 99% 99%, 100% 0);
   background-color: var(--wt);
   color: var(--v-d-b);
-  width: 16.43rem;
+  width: 35%;
   height: 8.75rem;
   padding: 3% 4%;
   border-radius: var(--rad);
+  animation: var(--left);
+}
+.card__icon {
+  animation: var(--left);
 }
 .card__icon span {
   width: 3.145rem;
@@ -126,16 +138,16 @@ html body {
   display: inline-block;
   width: 100%;
   height: 20px;
-  margin: calc(var(--rad) / 2);
+  margin-block: calc(var(--rad) / 2);
   border-radius: calc(var(--rad) * 3);
   background: hsla(229deg, 57%, 11%, 0.1);
 }
 
+/* ---- js media ----- */
 #tb, #mb {
   width: var(--st-w);
   background: var(--v-d-b) url("/images/bg-mobile.png") no-repeat border-box 0% 0%/100% 100%;
 }
-/* ---- js media ----- */
 #tb .card {
   width: 70%;
   height: 450px;
@@ -144,11 +156,13 @@ html body {
   height: 48%;
   width: 60%;
   align-self: var(--cn);
+  animation: var(--up);
 }
 #tb .card__info {
   height: 40%;
   width: 60%;
   align-self: var(--cn);
+  animation: var(--down);
 }
 #tb .card__info h1 {
   clip-path: none;
@@ -166,10 +180,12 @@ html body {
 #mb .card__intro {
   height: 47%;
   width: 100%;
+  animation: var(--up);
 }
 #mb .card__info {
   width: 100%;
   height: 40%;
+  animation: var(--down);
 }
 #mb .card__info h1 {
   clip-path: none;
@@ -179,6 +195,47 @@ html body {
   height: 5.393rem;
   width: 10.214rem;
   padding: 1%;
+}
+
+@keyframes goLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-60%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes goRight {
+  from {
+    opacity: 0;
+    transform: translate3d(60%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes goUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -60%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes goDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 60%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 /*# sourceMappingURL=fun.css.map */

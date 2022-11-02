@@ -31,15 +31,17 @@ function rmEvent(e,t,f){
 function Card(){
  this.logo= dq(".card__logo img")
  this.icons= dqA(".card__icon span")
- this.numberLeft= dq(".numLeft")
+ /*this.numberLeft= dq(".numLeft")
  this.numberUsed= dq(".numUsed")
- this.bar= dq(".card__bar span")
+ this.bar= dq(".card__bar span")*/
 }
 
 Card.SPEED= 0.04
 Card.MB= 600
 Card.TB= 1000
-
+Card.USED= dq(".numUsed")
+Card.LEFT= dq(".numLeft")
+Card.BAR= dq(".card__bar span")
 
 Card.prototype={
  constructor: Card,
@@ -47,7 +49,16 @@ Card.prototype={
   
  },
  animate:function(){
-  
+  let num=0
+  function f(){
+   //let num=0
+   num+=Card.SPEED
+   Card.BAR.style.backgroundImage=`linear-gradient(${num.toPrecision(2) +"deg"},red,blue)`
+   //todo
+   csl(num)
+   webkitRequestAnimationFrame(f)
+  }
+      event(window,"animationend",f)
  },
  resize:function(){
   let c= Card
@@ -61,6 +72,7 @@ Card.prototype={
    else console.error("err")
    
    csl(W)
+   
   }
   event(window,"resize",f)
  
@@ -73,10 +85,9 @@ Card.prototype={
 }
 
 
-
-
 const method= Card.prototype
 
 for(let prop in method){
  method[prop]()
 }
+

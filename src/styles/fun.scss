@@ -10,7 +10,7 @@
  outline: none;
  font-family:  "Raleway",monospace;
  font-style: normal;
-// border: var(--bd);
+ //border: var(--bd);
 }
 
 :root{
@@ -29,11 +29,19 @@
  --fts: 14px;
  --cn: center;
  --bd: 1px solid currentColor;
+ 
+ 
+ --b: ease-in-out;
+ --trans-a: 3.5s var(--b) 1 -.5s;
+ --right: goRight var(--trans-a);
+  --left: goLeft var(--trans-a);
+  --up: goUp var(--trans-a);
+  --down: goDown var(--trans-a);
 }
 
 html{
  font-size: var(--fts);
- width: var(--st-w);
+ width: var(--mx-w);
  min-height: var(--mx-h);
  
  
@@ -70,7 +78,7 @@ $im: !important;
 .gray{
  color: var(--gy-bl);
 font-weight: 500;
-font-size: 1.1rem $im;
+font-size: 1.15rem $im;
 }
 .pale{
  color: var(--p-bl);
@@ -87,6 +95,8 @@ font-size: 1.1rem $im;
   border-top-right-radius: calc(var(--st-w)/3) $im;
   border-radius: var(--rad);
   background-color: var(--dk-bl);
+  
+  animation: var(--left);
   div{
    width: 60%;
   }
@@ -100,7 +110,7 @@ font-size: 1.1rem $im;
    background-color: var(--dk-bl);
   
 position: relative;
-
+animation: var(--right);
 h1{
  position: absolute;
  top: -40%;
@@ -108,14 +118,16 @@ h1{
  clip-path: polygon(0 0,0 75%,87% 75%,99% 99%,100% 0);
  background-color: var(--wt);
  color: var(--v-d-b);
- width: 16.43rem;
+ width: 35%;//16.43rem;
  height: 8.75rem;
  padding: 3% 4%;
  border-radius: var(--rad);
+ animation: var(--left);
 }
 
  }
  &__icon{
+  animation: var(--left);
   span{
    width: 3.145rem;
    height: 3.145rem;
@@ -131,13 +143,14 @@ h1{
    display: inline-block;
    width: 100%;
    height: 20px;
-   margin: calc(var(--rad)/2);
+   margin-block:  calc(var(--rad)/2);
    border-radius: calc(var(--rad)*3);
    background: hsla(229,57%,11%,.1);
   }
  }
  color: #30B979;
 }
+/* ---- js media ----- */
 
 
 #tb,#mb{
@@ -150,7 +163,7 @@ h1{
  }
 }
 
-/* ---- js media ----- */
+
 #tb .card{
  width: 70%;
  height: 450px;
@@ -158,12 +171,15 @@ h1{
   height: 48%;
   width: 60%;
   align-self: var(--cn);
+  
+    animation: var(--up);
  }
  &__info{
     height: 40%;
       width: 60%;
     align-self: var(--cn);
     
+      animation: var(--down);
     h1{
      clip-path: none;
      top: 90%;
@@ -182,10 +198,13 @@ h1{
  &__intro{
   height: 47%;
   width: 100%;
+  
+    animation: var(--up);
  }
  &__info{
     width: 100%;
   height: 40%;
+    animation: var(--down);
   
   h1{
    clip-path: none;
@@ -196,6 +215,34 @@ h1{
    height: 5.393rem; 
    width: 10.214rem;
    padding: 1%;
+  }
+ }
+}
+
+$anime-x: ("goLeft":-60%,"goRight": 60%);
+$anime-y: ("goUp": -60%, "goDown":60%);
+@each $name,$val in $anime-x{
+ @keyframes #{$name}{
+  from{
+   opacity: 0;
+   transform: translate3d($val,0,0);
+  }
+  to{
+   opacity: 1;
+      transform: translate3d(0,0,0);
+  }
+ }
+}
+
+@each $name,$val in $anime-y{
+ @keyframes #{$name}{
+  from{
+   opacity: 0;
+   transform: translate3d(0,$val,0);
+  }
+  to{
+   opacity: 1;
+   transform: translate3d(0,0,0);
   }
  }
 }
