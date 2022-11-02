@@ -26,10 +26,14 @@ function rmEvent(e,t,f){
 
 
 
+
+
 function Card(){
  this.logo= dq(".card__logo img")
  this.icons= dqA(".card__icon span")
- this.number
+ this.numberLeft= dq(".numLeft")
+ this.numberUsed= dq(".numUsed")
+ this.bar= dq(".card__bar span")
 }
 
 Card.SPEED= 0.04
@@ -46,7 +50,20 @@ Card.prototype={
   
  },
  resize:function(){
-  
+  let c= Card
+  f()
+  function f(){
+   let W= window.innerWidth
+   
+   if(W>c.MB && W<=c.TB) html.id="tb"
+   else if(W<=c.MB) html.id="mb"
+   else if(W>c.TB) html.id=""
+   else console.error("err")
+   
+   csl(W)
+  }
+  event(window,"resize",f)
+ 
  },
  nomalize: function(){
   this.icons.forEach(e=>e.className="fx-column fx-evenly")
@@ -54,5 +71,12 @@ Card.prototype={
  }
  
 }
-let a = new Card()
-a.nomalize()
+
+
+
+
+const method= Card.prototype
+
+for(let prop in method){
+ method[prop]()
+}

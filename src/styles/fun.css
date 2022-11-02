@@ -26,7 +26,7 @@
 
 html {
   font-size: var(--fts);
-  width: var(--mx-w);
+  width: var(--st-w);
   min-height: var(--mx-h);
   background: var(--v-d-b) url("/images/bg-desktop.png") no-repeat border-box 0% 100%/100% 50%;
 }
