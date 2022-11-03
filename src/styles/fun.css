@@ -15,6 +15,8 @@
   --gy-bl: hsla(229,7%,55%,1);
   --dk-bl: hsla(228,56%,26%,1);
   --v-d-b: hsla(229,57%,11%,1);
+  --grad-1: hsla(6 100% 80% / 1);
+  --grad-2: hsla(335 100% 65% / 1);
   --mx-w: 1440px;
   --mx-h: 100vmax;
   --st-w: 100%;
@@ -38,6 +40,7 @@ html {
 }
 html body {
   min-height: inherit;
+  overflow-x: hidden;
 }
 
 /* ----- utility classes ----- */
@@ -140,7 +143,8 @@ html body {
   height: 20px;
   margin-block: calc(var(--rad) / 2);
   border-radius: calc(var(--rad) * 3);
-  background: hsla(229deg, 57%, 11%, 0.1);
+  background-color: hsla(229deg, 57%, 11%, 0.3);
+  background-image: linear-gradient(90deg, var(--grad-1), var(--grad-2), var(--ts) var(--a)), radial-gradient(10px 10px at var(--b) var(--cn), var(--wt) 90%, var(--ts) 80%);
 }
 
 /* ---- js media ----- */

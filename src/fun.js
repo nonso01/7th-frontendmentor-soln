@@ -23,7 +23,9 @@ function event(e,t,f){
 function rmEvent(e,t,f){
  const remove= e.removeEventListener(t,f)
 }
-
+function p(a,b){
+ return ((a/b)*100)
+}
 
 
 
@@ -31,12 +33,9 @@ function rmEvent(e,t,f){
 function Card(){
  this.logo= dq(".card__logo img")
  this.icons= dqA(".card__icon span")
- /*this.numberLeft= dq(".numLeft")
- this.numberUsed= dq(".numUsed")
- this.bar= dq(".card__bar span")*/
 }
 
-Card.SPEED= 0.04
+Card.SPEED= 0.1
 Card.MB= 600
 Card.TB= 1000
 Card.USED= dq(".numUsed")
@@ -51,14 +50,21 @@ Card.prototype={
  animate:function(){
   let num=0
   function f(){
-   //let num=0
+    let frame= webkitRequestAnimationFrame(f)
+
    num+=Card.SPEED
-   Card.BAR.style.backgroundImage=`linear-gradient(${num.toPrecision(2) +"deg"},red,blue)`
-   //todo
-   csl(num)
-   webkitRequestAnimationFrame(f)
+   let _num= p(num.toFixed(2),Card.TB)
+ //  csl(_num)
+   
+   Card.BAR.style=`--a: ${_num +"%"}; --b: ${(_num-=4)+"%"}`
+
+  if(num>=Card.TB){
+   num=Card.TB
+   cancelAnimationFrame(frame)
+    }
   }
       event(window,"animationend",f)
+    
  },
  resize:function(){
   let c= Card
@@ -91,3 +97,5 @@ for(let prop in method){
  method[prop]()
 }
 
+
+csl(Card)
