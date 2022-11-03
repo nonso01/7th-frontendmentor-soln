@@ -49,22 +49,35 @@ Card.prototype={
  },
  animate:function(){
   let num=0
-  function f(){
-    let frame= webkitRequestAnimationFrame(f)
+  function _fbar(){
+    let frame= webkitRequestAnimationFrame(_fbar)
 
    num+=Card.SPEED
    let _num= p(num.toFixed(2),Card.TB)
- //  csl(_num)
    
-   Card.BAR.style=`--a: ${_num +"%"}; --b: ${(_num-=4)+"%"}`
+   Card.BAR.style=`--a: ${_num +"%"}; --b: ${(_num-=2)+"%"}`
 
   if(num>=Card.TB){
    num=Card.TB
    cancelAnimationFrame(frame)
     }
   }
-      event(window,"animationend",f)
+      event(window,"animationend",_fbar)
     
+    function _fnum(){
+    let frame= webkitRequestAnimationFrame(_fnum)
+     num+=Card.SPEED
+     let _num=num.toFixed(1)
+     
+     Card.LEFT.textContent=`${Card.TB - _num}`
+    Card.USED.textContent=_num
+    
+    if(num>=Card.TB){
+     num=Card.TB-0.2
+     cancelAnimationFrame(frame)
+      }
+    }
+    event(window,"animationend",_fnum)
  },
  resize:function(){
   let c= Card
@@ -96,6 +109,3 @@ const method= Card.prototype
 for(let prop in method){
  method[prop]()
 }
-
-
-csl(Card)

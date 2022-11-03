@@ -144,7 +144,7 @@ html body {
   margin-block: calc(var(--rad) / 2);
   border-radius: calc(var(--rad) * 3);
   background-color: hsla(229deg, 57%, 11%, 0.3);
-  background-image: linear-gradient(90deg, var(--grad-1), var(--grad-2), var(--ts) var(--a)), radial-gradient(10px 10px at var(--b) var(--cn), var(--wt) 90%, var(--ts) 80%);
+  background-image: linear-gradient(90deg, var(--grad-1), var(--grad-2), var(--ts) var(--a)), radial-gradient(10px 10px at var(--b) var(--cn), var(--ts) 30%, var(--wt) 30% 90%, var(--ts) 80%);
 }
 
 /* ---- js media ----- */
