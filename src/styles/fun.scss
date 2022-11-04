@@ -2,6 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
 
+
 *{
  margin: 0;
  padding: 0;
@@ -10,7 +11,7 @@
  outline: none;
  font-family:  "Raleway",monospace;
  font-style: normal;
- //border: var(--bd);
+// border: var(--bd);
 }
 
 :root{
@@ -44,12 +45,13 @@
 
 html{
  font-size: var(--fts);
- width: var(--mx-w);
+ width: var(--st-w);
  min-height: var(--mx-h);
  
  
  background: var(--v-d-b) url("/images/bg-desktop.png") no-repeat border-box 0% 100%/100% 50%;
 
+color: var(--wt);
  body{
   min-height: inherit;
  }
@@ -95,6 +97,15 @@ font-size: clamp(.9rem,2vmin,1.05rem);
  transition: var(--trans-b);
 transform-origin: 50% 90%;
 transform: scale(0.89);
+ }
+ 
+ 
+ .tx{
+  text-align: var(--cn);
+ }
+ a{
+  color: var(--grad-1);
+  text-decoration: none;
  }
 
 //card object and components
@@ -169,7 +180,7 @@ h1{
 
 #tb,#mb{
  width: var(--st-w);
-  background: var(--v-d-b) url("/images/bg-mobile.png") no-repeat border-box 0% 0%/100% 100%;
+  background:  url("/images/bg-mobile.png") no-repeat border-box 0% 0%/100% 100%;
 
  .card{
   @extend .fx-column;
@@ -242,6 +253,7 @@ h1{
  }
  
 }
+
 
 $anime-x: ("goLeft":-60%,"goRight": 60%);
 $anime-y: ("goUp": -60%, "goDown":60%);

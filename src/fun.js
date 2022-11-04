@@ -33,6 +33,7 @@ function p(a,b){
 function Card(){
  this.logo= dq(".card__logo img")
  this.icons= dqA(".card__icon span")
+ this.attr= dq(".attr")
 }
 
 Card.SPEED= 0.05
@@ -45,7 +46,9 @@ Card.BAR= dq(".card__bar span")
 Card.prototype={
  constructor: Card,
  mode: function(){
-  
+  this.attr.onclick=(e)=>{
+   confirm("will add light theme soon!")
+  }
  },
  animate:function(){
   let num=0
@@ -98,7 +101,17 @@ Card.prototype={
  },
  nomalize: function(){
   this.icons.forEach(e=>e.className="fx-column fx-evenly")
+  
+  // on purpose (^^)
+ this.attr.style="width: 60px; height:60px; border-radius: var(--st-w); position:fixed; top: 10%; left: 70%; z-index: 5; background: url('/images/favicon-32x32.png') no-repeat var(--cn)/cover; box-shadow: 0 var(--rad) var(--fts) 1vmin hsla(0 100% 100% / .2); animation-name: goLeft;"
  
+ this.attr.children[0].style="width: 230px; height: 180px; border-radius: var(--fts); position:fixed; top: 50%;left:50%; transform: translate(-50%,-50%); background-color: var(--v-d-b);"
+
+ 
+ event(this.attr,"click",()=>{
+  this.attr.children[0].classList.toggle("hide")
+ })
+
  }
  
 }
@@ -117,3 +130,8 @@ event(dq(".card"),"pointerover",(e)=>{
  
  timeOut(()=>e.target.classList.remove("point"),500)
 })
+
+
+/* -----   others ------- */
+
+

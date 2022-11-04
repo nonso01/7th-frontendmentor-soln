@@ -35,9 +35,10 @@
 
 html {
   font-size: var(--fts);
-  width: var(--mx-w);
+  width: var(--st-w);
   min-height: var(--mx-h);
   background: var(--v-d-b) url("/images/bg-desktop.png") no-repeat border-box 0% 100%/100% 50%;
+  color: var(--wt);
 }
 html body {
   min-height: inherit;
@@ -93,6 +94,15 @@ html body {
   transition: var(--trans-b);
   transform-origin: 50% 90%;
   transform: scale(0.89);
+}
+
+.tx {
+  text-align: var(--cn);
+}
+
+a {
+  color: var(--grad-1);
+  text-decoration: none;
 }
 
 .card {
@@ -160,7 +170,7 @@ html body {
 /* ---- js media ----- */
 #tb, #mb {
   width: var(--st-w);
-  background: var(--v-d-b) url("/images/bg-mobile.png") no-repeat border-box 0% 0%/100% 100%;
+  background: url("/images/bg-mobile.png") no-repeat border-box 0% 0%/100% 100%;
 }
 #tb h1, #mb h1 {
   padding: 0;
