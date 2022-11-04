@@ -29,11 +29,13 @@
  --rad: .7143rem;
  --fts: 14px;
  --cn: center;
- --bd: 1px solid currentColor;
+ --bd: 2px solid currentColor;
  
  
- --b: ease-in-out;
- --trans-a: 3.5s var(--b) 1 -.5s;
+ --func: cubic-bezier(.68,-.55,.265,  1.55);
+ --trans-a: 3.5s var(--func) 1 -.5s;
+ --trans-b: all .2s var(--func);
+ 
  --right: goRight var(--trans-a);
   --left: goLeft var(--trans-a);
   --up: goUp var(--trans-a);
@@ -47,9 +49,9 @@ html{
  
  
  background: var(--v-d-b) url("/images/bg-desktop.png") no-repeat border-box 0% 100%/100% 50%;
+
  body{
   min-height: inherit;
-  overflow-x: hidden;
  }
 }
 
@@ -80,12 +82,21 @@ $im: !important;
 .gray{
  color: var(--gy-bl);
 font-weight: 500;
-font-size: 1.15rem $im;
+font-size: clamp(.9rem,2vmin,1.05rem);
 }
 .pale{
  color: var(--p-bl);
  font-weight: bold;
 }
+.trans:is(:hover,:focus){
+ transition: all .2s var(--func);
+}
+.point{
+ transition: var(--trans-b);
+transform-origin: 50% 90%;
+transform: scale(0.89);
+ }
+
 //card object and components
 .card{
  width: 80%;
@@ -164,6 +175,15 @@ h1{
   @extend .fx-column;
   @extend .fx-evenly;
  }
+ h1{
+  @extend .fx-row;
+  @extend .fx-evenly;
+  padding: 0;
+  span{
+   height: max-content;
+   align-self: var(--cn);
+  }
+ }
 }
 
 
@@ -215,11 +235,12 @@ h1{
    left: 50%;
    transform: translate3d(-50%,0,0);
 
-   height: 5.393rem; 
-   width: 10.214rem;
-   padding: 1%;
+   height: 6.393rem; 
+   width: 11.214rem;
+   //padding: 1%;
   }
  }
+ 
 }
 
 $anime-x: ("goLeft":-60%,"goRight": 60%);

@@ -23,9 +23,10 @@
   --rad: .7143rem;
   --fts: 14px;
   --cn: center;
-  --bd: 1px solid currentColor;
-  --b: ease-in-out;
-  --trans-a: 3.5s var(--b) 1 -.5s;
+  --bd: 2px solid currentColor;
+  --func: cubic-bezier(.68,-.55,.265, 1.55);
+  --trans-a: 3.5s var(--func) 1 -.5s;
+  --trans-b: all .2s var(--func);
   --right: goRight var(--trans-a);
   --left: goLeft var(--trans-a);
   --up: goUp var(--trans-a);
@@ -40,11 +41,10 @@ html {
 }
 html body {
   min-height: inherit;
-  overflow-x: hidden;
 }
 
 /* ----- utility classes ----- */
-.fx-evenly, #tb .card, #mb .card {
+.fx-evenly, #tb h1, #mb h1, #tb .card, #mb .card {
   display: flex;
   align-content: var(--cn);
   justify-content: space-evenly;
@@ -62,7 +62,7 @@ html body {
   justify-content: space-between;
 }
 
-.fx-row {
+.fx-row, #tb h1, #mb h1 {
   flex-flow: row;
 }
 
@@ -77,12 +77,22 @@ html body {
 .gray {
   color: var(--gy-bl);
   font-weight: 500;
-  font-size: 1.15rem !important;
+  font-size: clamp(0.9rem, 2vmin, 1.05rem);
 }
 
 .pale {
   color: var(--p-bl);
   font-weight: bold;
+}
+
+.trans:is(:hover, :focus) {
+  transition: all 0.2s var(--func);
+}
+
+.point {
+  transition: var(--trans-b);
+  transform-origin: 50% 90%;
+  transform: scale(0.89);
 }
 
 .card {
@@ -152,6 +162,14 @@ html body {
   width: var(--st-w);
   background: var(--v-d-b) url("/images/bg-mobile.png") no-repeat border-box 0% 0%/100% 100%;
 }
+#tb h1, #mb h1 {
+  padding: 0;
+}
+#tb h1 span, #mb h1 span {
+  height: max-content;
+  align-self: var(--cn);
+}
+
 #tb .card {
   width: 70%;
   height: 450px;
@@ -196,9 +214,8 @@ html body {
   top: 90%;
   left: 50%;
   transform: translate3d(-50%, 0, 0);
-  height: 5.393rem;
-  width: 10.214rem;
-  padding: 1%;
+  height: 6.393rem;
+  width: 11.214rem;
 }
 
 @keyframes goLeft {

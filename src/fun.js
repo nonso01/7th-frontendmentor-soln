@@ -35,7 +35,7 @@ function Card(){
  this.icons= dqA(".card__icon span")
 }
 
-Card.SPEED= 0.1
+Card.SPEED= 0.05
 Card.MB= 600
 Card.TB= 1000
 Card.USED= dq(".numUsed")
@@ -69,7 +69,7 @@ Card.prototype={
      num+=Card.SPEED
      let _num=num.toFixed(1)
      
-     Card.LEFT.textContent=`${Card.TB - _num}`
+     Card.LEFT.textContent=(Card.TB - _num).toFixed(1)
     Card.USED.textContent=_num
     
     if(num>=Card.TB){
@@ -109,3 +109,11 @@ const method= Card.prototype
 for(let prop in method){
  method[prop]()
 }
+
+event(dq(".card"),"pointerover",(e)=>{
+ e.preventDefault()
+  e.target.classList.add("trans")
+ e.target.classList.add("point")
+ 
+ timeOut(()=>e.target.classList.remove("point"),500)
+})
