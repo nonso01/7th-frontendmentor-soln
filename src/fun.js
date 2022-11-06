@@ -90,7 +90,7 @@ Card.prototype={
    
    if(W>c.MB && W<=c.TB) html.id="tb"
    else if(W<=c.MB) html.id="mb"
-   else if(W>c.TB) html.removeAttribute("id)
+   else if(W>c.TB) html.removeAttribute("id")
    else console.error("err")
    
    csl(W)
